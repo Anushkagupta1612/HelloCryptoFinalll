@@ -1,6 +1,9 @@
+
+import '@coinbase/onchainkit/styles.css';
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import {OnChainKitProvider} from "@/app/providers/onChainKitProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+      {/*<CustomWagmiProvider>*/}
+          <OnChainKitProvider>
+              {children}
+          </OnChainKitProvider>
+
+      {/*</CustomWagmiProvider>*/}
       </body>
     </html>
   );
